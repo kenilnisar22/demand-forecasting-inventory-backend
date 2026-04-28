@@ -1,0 +1,16 @@
+product_id,product_name,category,quantity,unit_price,supplier,order_date,delivery_date,status
+P001,Widget A,Electronics,150,12.50,Acme Corp,2025-01-15,2025-01-22,Delivered
+P002,Widget B,Electronics,200,8.75,Acme Corp,2025-01-16,2025-01-23,Delivered
+P003,Gadget X,Hardware,75,45.00,TechSupply Inc,2025-01-17,2025-01-25,Delivered
+P004,Gadget Y,Hardware,50,62.50,TechSupply Inc,2025-01-18,2025-01-26,In Transit
+P005,Component Z,Parts,300,3.25,Global Parts Co,2025-01-19,2025-01-27,Delivered
+P006,Widget A,Electronics,120,12.50,Acme Corp,2025-01-20,2025-01-28,Pending
+P007,Tool Alpha,Tools,25,125.00,ToolMaster Ltd,2025-01-21,2025-01-29,Delivered
+P008,Tool Beta,Tools,40,89.99,ToolMaster Ltd,2025-01-22,2025-01-30,In Transit
+P009,Material X,Raw Materials,500,2.10,RawSource Inc,2025-01-23,2025-01-31,Delivered
+P010,Material Y,Raw Materials,350,3.75,RawSource Inc,2025-01-24,2025-02-01,Delivered
+P011,Widget B,Electronics,180,8.75,Acme Corp,2025-01-25,2025-02-02,Delivered
+P012,Gadget X,Hardware,60,45.00,TechSupply Inc,2025-01-26,2025-02-03,Pending
+P013,Component Z,Parts,250,3.25,Global Parts Co,2025-01-27,2025-02-04,Delivered
+P014,Widget A,Electronics,100,12.50,Acme Corp,2025-01-28,2025-02-05,In Transit
+P015,Tool Alpha,Tools,30,125.00,ToolMaster Ltd,2025-01-29,2025-02-06,Delivered
