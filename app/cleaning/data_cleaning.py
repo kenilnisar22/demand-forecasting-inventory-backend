@@ -8,7 +8,7 @@ This module handles data cleaning operations including:
 
 import pandas as pd
 import numpy as np
-from typing import Optional, Tuple
+from typing import Literal, Optional, Tuple
 
 
 class DataCleaner:
@@ -25,7 +25,7 @@ class DataCleaner:
         self.original_shape = df.shape
         self.cleaning_report = {}
     
-    def remove_duplicates(self, subset: Optional[list] = None, keep: str = 'first') -> pd.DataFrame:
+    def remove_duplicates(self, subset: Optional[list] = None, keep: Literal['first', 'last', False] = 'first') -> pd.DataFrame:
         """
         Remove duplicate rows from the DataFrame.
         
@@ -122,15 +122,13 @@ class DataCleaner:
         for col in numeric_cols:
             if df[col].isnull().any():
                 if numeric_method == 'mean':
-                    df[col].fillna(df[col].mean(), inplace=True)
+                    df[col] = df[col].fillna(df[col].mean())
                 elif numeric_method == 'median':
-                    df[col].fillna(df[col].median(), inplace=True)
+                    df[col] = df[col].fillna(df[col].median())
                 elif numeric_method == 'ffill':
-                    df[col].fillna(method='ffill', inplace=True)
-                    df[col].fillna(method='bfill', inplace=True)
+                    df[col] = df[col].ffill().bfill()
                 elif numeric_method == 'bfill':
-                    df[col].fillna(method='bfill', inplace=True)
-                    df[col].fillna(method='ffill', inplace=True)
+                    df[col] = df[col].bfill().ffill()
         
         # Fill categorical columns
         for col in categorical_cols:
@@ -138,13 +136,11 @@ class DataCleaner:
                 if categorical_method == 'mode':
                     mode_val = df[col].mode()
                     if len(mode_val) > 0:
-                        df[col].fillna(mode_val[0], inplace=True)
+                        df[col] = df[col].fillna(mode_val[0])
                 elif categorical_method == 'ffill':
-                    df[col].fillna(method='ffill', inplace=True)
-                    df[col].fillna(method='bfill', inplace=True)
+                    df[col] = df[col].ffill().bfill()
                 elif categorical_method == 'bfill':
-                    df[col].fillna(method='bfill', inplace=True)
-                    df[col].fillna(method='ffill', inplace=True)
+                    df[col] = df[col].bfill().ffill()
         
         return df
     
